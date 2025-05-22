@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Template</title>
+    <title>Expressive Website Template</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for Material 3 Expressive Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="main-header">
-        <div class="logo">Logo</div>
-        <nav class="main-nav">
-            <ul>
-                <li class="dropdown">
-                    <button class="nav-button dropdown-toggle">Apps</button>
-                    <div class="dropdown-content">
-                        <a href="#">App 1</a>
-                        <a href="#">App 2</a>
-                        <a href="#">App 3</a>
+    <header class="main-header" role="banner">
+        <div class="logo" role="heading" aria-level="1">My Company Logo</div>
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+            <ul role="menubar">
+                <li class="dropdown" role="none">
+                    <button id="apps-toggle" class="nav-button dropdown-toggle"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="apps-menu"
+                            role="menuitem">
+                        Apps
+                    </button>
+                    <div id="apps-menu" class="dropdown-content" role="menu" aria-labelledby="apps-toggle">
+                        <a href="#" role="menuitem">App Dashboard</a>
+                        <a href="#" role="menuitem">Mobile App</a>
+                        <a href="#" role="menuitem">Web App</a>
                     </div>
                 </li>
-                <li class="dropdown">
-                    <button class="nav-button dropdown-toggle">Support</button>
-                    <div class="dropdown-content">
-                        <a href="#">FAQ</a>
-                        <a href="#">Contact Us</a>
-                        <a href="#">Help Center</a>
+                <li class="dropdown" role="none">
+                    <button id="support-toggle" class="nav-button dropdown-toggle"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="support-menu"
+                            role="menuitem">
+                        Support
+                    </button>
+                    <div id="support-menu" class="dropdown-content" role="menu" aria-labelledby="support-toggle">
+                        <a href="#" role="menuitem">Knowledge Base</a>
+                        <a href="#" role="menuitem">Live Chat</a>
+                        <a href="#" role="menuitem">Contact Us</a>
                     </div>
                 </li>
-                <li class="dropdown">
-                    <button class="nav-button dropdown-toggle">My other projects</button>
-                    <div class="dropdown-content">
-                        <a href="#">Project Alpha</a>
-                        <a href="#">Project Beta</a>
-                        <a href="#">Project Gamma</a>
+                <li class="dropdown" role="none">
+                    <button id="projects-toggle" class="nav-button dropdown-toggle"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu"
+                            role="menuitem">
+                        My other projects
+                    </button>
+                    <div id="projects-menu" class="dropdown-content" role="menu" aria-labelledby="projects-toggle">
+                        <a href="#" role="menuitem">Project Alpha</a>
+                        <a href="#" role="menuitem">Project Beta</a>
+                        <a href="#" role="menuitem">Project Gamma</a>
                     </div>
                 </li>
             </ul>
@@ -42,14 +55,14 @@
 
     <main class="main-content">
         <section class="hero-section">
-            <h1 class="header-title">Header</h1>
-            <p class="subheader-text">Subheader</p>
+            <h1 class="header-title">Innovative Solutions</h1>
+            <p class="subheader-text">Empowering your future with cutting-edge technology.</p>
         </section>
 
         <hr class="content-divider">
 
         <section class="other-content-section">
-            <p>other content (you don't need to put anything here)</p>
+            <p>This is where other dynamic and engaging content would go. We'll leave it simple for now, focusing on the layout and main header area as per the template.</p>
         </section>
     </main>
 
