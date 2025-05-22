@@ -11,46 +11,53 @@
 <body>
     <header class="main-header" role="banner">
         <div class="logo" role="heading" aria-level="1">My Company Logo</div>
-        <nav class="main-nav" role="navigation" aria-label="Main navigation">
-            <ul role="menubar">
-                <li class="dropdown" role="none">
-                    <button id="apps-toggle" class="nav-button dropdown-toggle"
-                            aria-haspopup="true" aria-expanded="false" aria-controls="apps-menu"
-                            role="menuitem">
-                        Apps
-                    </button>
-                    <div id="apps-menu" class="dropdown-content" role="menu" aria-labelledby="apps-toggle">
-                        <a href="#" role="menuitem">App Dashboard</a>
-                        <a href="#" role="menuitem">Mobile App</a>
-                        <a href="#" role="menuitem">Web App</a>
-                    </div>
-                </li>
-                <li class="dropdown" role="none">
-                    <button id="support-toggle" class="nav-button dropdown-toggle"
-                            aria-haspopup="true" aria-expanded="false" aria-controls="support-menu"
-                            role="menuitem">
-                        Support
-                    </button>
-                    <div id="support-menu" class="dropdown-content" role="menu" aria-labelledby="support-toggle">
-                        <a href="#" role="menuitem">Knowledge Base</a>
-                        <a href="#" role="menuitem">Live Chat</a>
-                        <a href="#" role="menuitem">Contact Us</a>
-                    </div>
-                </li>
-                <li class="dropdown" role="none">
-                    <button id="projects-toggle" class="nav-button dropdown-toggle"
-                            aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu"
-                            role="menuitem">
-                        My other projects
-                    </button>
-                    <div id="projects-menu" class="dropdown-content" role="menu" aria-labelledby="projects-toggle">
-                        <a href="#" role="menuitem">Project Alpha</a>
-                        <a href="#" role="menuitem">Project Beta</a>
-                        <a href="#" role="menuitem">Project Gamma</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        <div class="header-right-controls">
+            <!-- Dark Mode Toggle Switch -->
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul role="menubar">
+                    <li class="dropdown" role="none">
+                        <button id="apps-toggle" class="nav-button dropdown-toggle"
+                                aria-haspopup="true" aria-expanded="false" aria-controls="apps-menu"
+                                role="menuitem">
+                            Apps
+                        </button>
+                        <div id="apps-menu" class="dropdown-content" role="menu" aria-labelledby="apps-toggle">
+                            <a href="#" role="menuitem">App Dashboard</a>
+                            <a href="#" role="menuitem">Mobile App</a>
+                            <a href="#" role="menuitem">Web App</a>
+                        </div>
+                    </li>
+                    <li class="dropdown" role="none">
+                        <button id="support-toggle" class="nav-button dropdown-toggle"
+                                aria-haspopup="true" aria-expanded="false" aria-controls="support-menu"
+                                role="menuitem">
+                            Support
+                        </button>
+                        <div id="support-menu" class="dropdown-content" role="menu" aria-labelledby="support-toggle">
+                            <a href="#" role="menuitem">Knowledge Base</a>
+                            <a href="#" role="menuitem">Live Chat</a>
+                            <a href="#" role="menuitem">Contact Us</a>
+                        </div>
+                    </li>
+                    <li class="dropdown" role="none">
+                        <button id="projects-toggle" class="nav-button dropdown-toggle"
+                                aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu"
+                                role="menuitem">
+                            My other projects
+                        </button>
+                        <div id="projects-menu" class="dropdown-content" role="menu" aria-labelledby="projects-toggle">
+                            <a href="#" role="menuitem">Project Alpha</a>
+                            <a href="#" role="menuitem">Project Beta</a>
+                            <a href="#" role="menuitem">Project Gamma</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="main-content">
