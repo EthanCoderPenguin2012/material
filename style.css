@@ -1,0 +1,208 @@
+/* Basic Resets & Global Styles */
+:root {
+    --primary-color: #6200EE; /* A vibrant Material Design purple */
+    --on-primary-color: #FFFFFF;
+    --text-color: #212121;
+    --subtle-text-color: #757575;
+    --border-color: #E0E0E0;
+    --background-color: #FFFFFF;
+    --surface-color: #F5F5F5;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Spacing between nav items */
+}
+
+.main-nav li {
+    position: relative; /* For dropdown positioning */
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+    background-color: rgba(98, 0, 238, 0.08); /* Light primary hover effect */
+    color: var(--primary-color);
+    outline: none;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+    top: calc(100% + 10px); /* Position below the button with some space */
+    left: 50%;
+    transform: translateX(-50%); /* Center dropdown below button */
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically in available space */
+    padding: 40px;
+    text-align: center;
+}
+
+.hero-section {
+    padding: 60px 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+.header-title {
+    font-size: 64px; /* Larger, more expressive header */
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.subheader-text {
+    font-size: 24px;
+    color: var(--subtle-text-color);
+    font-weight: 400;
+}
+
+.content-divider {
+    width: 80%; /* Adjust width as needed */
+    max-width: 1000px;
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 40px 0;
+}
+
+.other-content-section {
+    padding: 20px 0 60px;
+    color: var(--subtle-text-color);
+    font-size: 16px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .nav-button {
+        width: 100%;
+    }
+
+    .dropdown-content {
+        position: static; /* Stack dropdown content below button */
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: var(--surface-color); /* Match header background */
+        border-top: 1px solid var(--border-color);
+        margin-top: 5px;
+    }
+
+    .dropdown-content a {
+        padding-left: 30px; /* Indent dropdown items */
+    }
+
+    .header-title {
+        font-size: 48px;
+    }
+
+    .subheader-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 36px;
+    }
+
+    .subheader-text {
+        font-size: 18px;
+    }
+
+    .main-header {
+        padding: 10px 15px;
+    }
+}
