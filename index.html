@@ -1,286 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Project Website</title>
-  <!-- Material Design Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Material Icons - for sparkle, light_mode, dark_mode icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-
-  <!-- Material Web Components CDN Import Map -->
-  <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
-      }
-    }
-  </script>
-  <!-- Material Web Components Script and Typography Styles -->
-  <script type="module">
-    import '@material/web/all.js'; // Import all components for simplicity
-    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-
-    // Initial theme setup (default to light, or check user preference)
-    document.addEventListener('DOMContentLoaded', () => {
-      const htmlElement = document.documentElement;
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      htmlElement.setAttribute('data-theme', savedTheme);
-      // Update theme status text and icon
-      const themeStatus = document.getElementById('theme-status');
-      const themeToggleIcon = document.getElementById('theme-toggle-icon');
-      if (themeStatus && themeToggleIcon) {
-        themeStatus.textContent = savedTheme === 'dark' ? 'Dark Mode' : 'Light Mode';
-        themeToggleIcon.textContent = savedTheme === 'dark' ? 'dark_mode' : 'light_mode';
-      }
-    });
-  </script>
-  <style>
-    /* CSS Variables for Theming */
-    :root {
-      /* Light theme colors */
-      --md-sys-color-surface: #fdfbff;
-      --md-sys-color-on-surface: #1c1b1f;
-      --md-sys-color-primary: #6750a4;
-      --md-sys-color-on-primary: #ffffff;
-      --md-sys-color-surface-container: #ede7f8; /* A lighter surface for elements */
-      --md-sys-color-outline: #79747e; /* For borders */
-      --app-background-color: #f7f2fa; /* A slightly off-white for the dots background */
-      --dots-color: #d0d0d0;
-    }
-
-    [data-theme='dark'] {
-      /* Dark theme colors */
-      --md-sys-color-surface: #1c1b1f;
-      --md-sys-color-on-surface: #e6e1e5;
-      --md-sys-color-primary: #d0bcff;
-      --md-sys-color-on-primary: #381e72;
-      --md-sys-color-surface-container: #2b292e;
-      --md-sys-color-outline: #938f96;
-      --app-background-color: #26242c;
-      --dots-color: #444;
-    }
-
-    /* General Body Styles */
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--app-background-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: var(--md-sys-color-on-surface); /* Default text color */
-      transition: background-color 0.3s ease, color 0.3s ease;
-      background-image: radial-gradient(circle, var(--dots-color) 1px, transparent 1px);
-      background-size: 16px 16px;
-      background-position: 0 0;
-    }
-
-    /* Main Container */
-    .container {
-      width: 800px; /* Approximate width based on image */
-      height: 600px; /* Approximate height based on image */
-      border: 2px solid black;
-      background-color: var(--md-sys-color-surface);
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    [data-theme='dark'] .container {
-      border-color: #ffffff; /* White border in dark mode */
-      box-shadow: 0 4px 8px rgba(255,255,255,0.2);
-    }
-
-    /* Header Section */
-    .header-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      height: 80px; /* Adjust as needed */
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: 700;
-      margin-left: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      margin-right: 20px;
-    }
-
-    .nav-item {
-        display: flex;
-        align-items: center;
-        position: relative; /* For menu positioning */
-    }
-
-    .nav-item md-text-button {
-      text-transform: none; /* Prevent uppercase from Material button */
-      font-size: 16px;
-      --md-text-button-label-text-color: var(--md-sys-color-on-surface); /* Use on-surface color */
-    }
-
-    .nav-item .sparkle-icon {
-        color: lightskyblue; /* Approximate star color */
-        margin-left: 5px;
-        font-size: 20px; /* Adjust size if needed */
-    }
-
-    /* Main Content Section */
-    .main-content {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .main-content h1 {
-      font-size: 48px;
-      margin-bottom: 5px;
-    }
-
-    .main-content p {
-      font-size: 24px;
-      margin-top: 0;
-    }
-
-    /* Divider Line */
-    .divider {
-      height: 2px;
-      background-color: black;
-      width: 100%;
-    }
-
-    [data-theme='dark'] .divider {
-      background-color: #ffffff; /* White divider in dark mode */
-    }
-
-    /* Other Content Section */
-    .other-content {
-      padding: 20px;
-      font-size: 18px;
-      color: var(--md-sys-color-on-surface);
-    }
-
-    /* Dark/Light Mode Toggle Button Styling */
-    .theme-toggle-container {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 15px;
-        background-color: var(--md-sys-color-surface-container);
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .theme-toggle-container md-icon-button {
-        --md-icon-button-icon-color: var(--md-sys-color-on-surface);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="header-section">
-      <div class="logo">Logo</div>
-      <div class="nav-links">
-        <div class="nav-item">
-          <md-text-button id="apps-button">Apps</md-text-button>
-          <span class="material-symbols-outlined sparkle-icon">sparkle</span>
-          <md-menu id="apps-menu" anchor="apps-button">
-            <md-menu-item headline="Page 1"></md-menu-item>
-            <md-menu-item headline="Page 2"></md-menu-item>
-            <md-menu-item headline="Page 3"></md-menu-item>
-          </md-menu>
-        </div>
-        <div class="nav-item">
-          <md-text-button id="support-button">Support</md-text-button>
-          <span class="material-symbols-outlined sparkle-icon">sparkle</span>
-          <md-menu id="support-menu" anchor="support-button">
-            <md-menu-item headline="Help Center"></md-menu-item>
-            <md-menu-item headline="Contact Us"></md-menu-item>
-          </md-menu>
-        </div>
-        <div class="nav-item">
-          <md-text-button id="projects-button">My other projects</md-text-button>
-          <span class="material-symbols-outlined sparkle-icon">sparkle</span>
-          <md-menu id="projects-menu" anchor="projects-button">
-            <md-menu-item headline="Project A"></md-menu-item>
-            <md-menu-item headline="Project B"></md-menu-item>
-            <md-menu-item headline="Project C"></md-menu-item>
-          </md-menu>
-        </div>
-      </div>
-    </div>
+    <header class="main-header">
+        <div class="logo">Logo</div>
+        <nav class="main-nav">
+            <ul>
+                <li class="dropdown">
+                    <button class="nav-button dropdown-toggle">Apps</button>
+                    <div class="dropdown-content">
+                        <a href="#">App 1</a>
+                        <a href="#">App 2</a>
+                        <a href="#">App 3</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button class="nav-button dropdown-toggle">Support</button>
+                    <div class="dropdown-content">
+                        <a href="#">FAQ</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Help Center</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button class="nav-button dropdown-toggle">My other projects</button>
+                    <div class="dropdown-content">
+                        <a href="#">Project Alpha</a>
+                        <a href="#">Project Beta</a>
+                        <a href="#">Project Gamma</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="main-content">
-      <h1 class="md-typescale-display-medium">Header</h1>
-      <p class="md-typescale-body-medium">Subheader</p>
-    </div>
+    <main class="main-content">
+        <section class="hero-section">
+            <h1 class="header-title">Header</h1>
+            <p class="subheader-text">Subheader</p>
+        </section>
 
-    <div class="divider"></div>
+        <hr class="content-divider">
 
-    <div class="other-content">
-      other content (you don't need to put anything here)
-    </div>
-  </div>
+        <section class="other-content-section">
+            <p>other content (you don't need to put anything here)</p>
+        </section>
+    </main>
 
-  <div class="theme-toggle-container">
-    <md-icon-button id="theme-toggle">
-        <span class="material-symbols-outlined" id="theme-toggle-icon">light_mode</span>
-    </md-icon-button>
-    <span id="theme-status">Light Mode</span>
-  </div>
-
-  <script type="module">
-    document.addEventListener('DOMContentLoaded', () => {
-      const themeToggle = document.getElementById('theme-toggle');
-      const themeStatus = document.getElementById('theme-status');
-      const themeToggleIcon = document.getElementById('theme-toggle-icon');
-      const htmlElement = document.documentElement;
-
-      // Set up menu anchors and listeners
-      const setupMenu = (buttonId, menuId) => {
-        const button = document.getElementById(buttonId);
-        const menu = document.getElementById(menuId);
-        if (button && menu) {
-          button.addEventListener('click', () => {
-            menu.open = !menu.open; // Toggle menu open state
-          });
-        }
-      };
-
-      setupMenu('apps-button', 'apps-menu');
-      setupMenu('support-button', 'support-menu');
-      setupMenu('projects-button', 'projects-menu');
-
-      // Theme toggle functionality
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-          const currentTheme = htmlElement.getAttribute('data-theme');
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          htmlElement.setAttribute('data-theme', newTheme);
-          localStorage.setItem('theme', newTheme); // Save preference
-          themeStatus.textContent = newTheme === 'dark' ? 'Dark Mode' : 'Light Mode';
-          themeToggleIcon.textContent = newTheme === 'dark' ? 'dark_mode' : 'light_mode';
-        });
-      }
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
